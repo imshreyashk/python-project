@@ -1,0 +1,45 @@
+#Calculator
+
+#add
+def add(n1, n2):
+  return n1 + n2
+
+# subtract
+def sub(n1, n2):
+  return n1 - n2
+
+# multiply
+def multiply(n1, n2):
+  return n1 * n2
+
+#divide
+def div(n1, n2):
+  return n1/n2
+
+operators = {
+  "+":add,
+  "-": sub,
+  "*": multiply,
+  "/": div
+  
+}
+def cal():
+  num1 = float(input("What's the first number?: "))
+  for symbol in operators:
+    print(symbol)
+  should_continue = True
+  
+  while should_continue:
+    operation_symbol = input("Pick the operation from the line above:)")
+    num2 = float(input("what's your second number: "))
+    cal_answer = operators[operation_symbol]
+    answer = cal_answer(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+    if input("Type y for continue or n to start new calcultation: ") == "y":
+      num1 = answer
+    else:
+      should_continue = False
+      cal()
+
+cal()
